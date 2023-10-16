@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        @font-face {
+            font-family: 'Chewy';
+            src: url('./Chewy-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body{
+            background-image: linear-gradient(to right, #FFE959, #FF8A02);
+        }
+        main {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 600px;
+            margin: 150px auto 10px auto;
+            padding: 10px 0px 10px 0px;
+            box-shadow: 5px 5px 20px #000000;
+            border-radius: 25px;
+            gap: 2px;
+        }
+        main#conteudo img#animaisFundo{
+            background-image: url(./animais.png);
+        }
+        select {
+            width: 200px;
+            border-radius: 8px;
+            background-color: #ffca995d;
+            font-family: 'Chewy';
+            border-color: #924a065d;
+        }
+
+        input {
+            width: 192px;
+            border-radius: 8px;
+            font-family: 'Chewy';
+            background-color: #ffca995d;
+            border-color: #924a065d;
+        }
+
+        button#botEnviar {
+            width: 100px;
+            border-radius: 8px;
+            background-color: #BA5E25;
+            font-family: 'Chewy';
+            letter-spacing: 1px;
+            border-color: rgba(0, 0, 0, 0.171);
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        button#botEnviar:hover {
+            width: 100px;
+            border-radius: 8px;
+            background-color: #FF9858;
+            color: #f5f5f5;
+            border-color: rgba(255, 255, 255, 0.171);
+        }
+
+        button#botEditar {
+            background-image: url(./13467.png);
+            height: 22px;
+            width: 22px;
+            background-size: cover;
+            text-indent: -999999em;
+            border-color: rgba(0, 0, 0, 0.171);
+            background-color: #ffca99;
+            background-repeat: no-repeat;
+            border-radius: 8px;
+        }
+
+        button#botaoex {
+            background-image: url(./54324.png);
+            height: 22px;
+            width: 22px;
+            background-size: cover;
+            text-indent: -999999em;
+            border-color: rgba(0, 0, 0, 0.171);
+            background-repeat: no-repeat;
+            border-radius: 8px;
+        }
+
+        input#pfrase {
+            width: 145px;
+        }
+
+        input#pfrase2 {
+            width: 145px;
+        }
+
+        div#divpfrase {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        div#divpfrase2 {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        h2 {
+            color: #BA5E25;
+            font-family: 'Chewy';
+            text-transform: uppercase;
+        }
+        div#divheader{
+            display: flex;
+            gap: 4px;
+        }
+        img#imagem1{
+            width: 20px;
+            height: 20px;
+            margin: 20px 0px 0px 2px;
+            padding: 4px 0px 8px 0px;
+        }
+        footer {
+            padding: 50px 0px 0px 0px;
+        }
+    </style>
+</head>
+
+<body>
+        <main>
+            <div id="divheader"><h2>Pet</h2><img src="./pata.png" alt="" id="imagem1"><h2>Shop</h2></div>
+            <select name="select1" id="select1" onchange="mudarSelect()">
+                <option value="">Selecione uma das opções:</option>
+                <option value="Cachorros">Cachorros</option>
+                <option value="Gatos">Gatos</option>
+                <option value="Calopsitas">Calopsitas</option>
+            </select>
+        
+            <select name="" id="select2">
+            </select>
+        
+            <div id="div2">
+                <input type="text" name="" id="frase" placeholder="Digite alguma coisa...">
+            </div>
+        
+            <button id="botEnviar" onclick="mudarInput()">Enviar</button>
+            <div id="divpfrase">
+                <input type="text" name="" id="pfrase">
+                <button id="botEditar" onclick="Edicao()"> Editar</button>
+                <div id="div1" onclick="botExcluir()">
+                    <button style="background-color: #ff6961;" id="botaoex">Excluir</button>
+                </div>
+            </div>
+        
+            <div id="divpfrase2">
+                <input type="text" name="" id="pfrase2">
+                <button id="botEditar" onclick="Edicao()"> Editar</button>
+                <div id="div5" onclick="botExcluir2()">
+                    <button style="background-color: #ff6961;" id="botaoex">Excluir</button>
+                </div>
+            </div>
+        
+            <script>
+                var select1 = document.getElementById("select1");
+                var select2 = document.getElementById("select2");
+        
+                var opcao = document.createElement("option");
+                opcao.value = "";
+                opcao.text = "Selecione uma das opções:";
+                select2.appendChild(opcao);
+        
+                function mudarSelect() {
+        
+                    if (select1.value == 'Cachorros') {
+                        if (select2.length > 1) {
+                            for (var i = 1; i < 3;) {
+                                select2.removeChild(select2.children[i]);
+                            i++
+                        }
+                        select2.removeChild(select2.children[1]);
+                        }
+        
+                        var opcao1 = document.createElement("option");
+                        opcao1.value = "Shih Tzu";
+                        opcao1.text = "Shih Tzu";
+                        select2.appendChild(opcao1);
+                        var opcao1 = document.createElement("option");
+                        opcao1.value = "Golden Retriever";
+                        opcao1.text = "Golden Retriever";
+                        select2.appendChild(opcao1);
+                        var opcao1 = document.createElement("option");
+                        opcao1.value = "Rottweiler";
+                        opcao1.text = "Rottweiler";
+                        select2.appendChild(opcao1);
+        
+                    }
+        
+                    if (select1.value == 'Gatos') {
+                        if (select2.length > 1) {
+                            for (var i = 1; i < 3;) {
+                                select2.removeChild(select2.children[i]);
+                            i++
+                        }
+                        select2.removeChild(select2.children[1]);
+                        }
+        
+                            var opcao = document.createElement("option");
+                            opcao.value = "Persa";
+                            opcao.text = "Persa";
+                            select2.appendChild(opcao);
+                            var opcao = document.createElement("option");
+                            opcao.value = "Siamês";
+                            opcao.text = "Siamês";
+                            select2.appendChild(opcao);
+                            var opcao = document.createElement("option");
+                            opcao.value = "Maine Coon";
+                            opcao.text = "Maine Coon";
+                            select2.appendChild(opcao);
+        
+                    }
+        
+                    if (select1.value == 'Calopsitas') {
+                        if (select2.length > 1) {
+                            for (var i = 1; i < 3;) {
+                                select2.removeChild(select2.children[i]);
+                            i++
+                        }
+                        select2.removeChild(select2.children[1]);
+                        }
+        
+                        var opcao = document.createElement("option");
+                        opcao.value = "Lutino";
+                        opcao.text = "Lutino";
+                        select2.appendChild(opcao);
+                        var opcao = document.createElement("option");
+                        opcao.value = "Albina";
+                        opcao.text = "Albina";
+                        select2.appendChild(opcao);
+                        var opcao = document.createElement("option");
+                        opcao.value = "Silvestre";
+                        opcao.text = "Silvestre";
+                        select2.appendChild(opcao);
+                    }
+                }
+        
+                function mudarInput() {
+                    var select1 = document.getElementById("select1");
+                    var select2 = document.getElementById("select2");
+                    var selInput = document.getElementById("frase");
+                    var pfrase = document.getElementById("pfrase");
+                    var pfrase2 = document.getElementById("pfrase2");
+        
+                    pfrase.value = selInput.value + " " + select1.value;
+        
+                    pfrase2.value = selInput.value + " " + select2.value;
+                }
+        
+                function botExcluir() {
+                    var div = document.getElementById("div1");
+                    var pfrase = document.getElementById("pfrase");
+                    pfrase.value = ''
+                }
+                function botExcluir2() {
+                    var div = document.getElementById("div5");
+                    var pfrase2 = document.getElementById("pfrase2");
+                    pfrase2.value = ''
+                }
+        
+                function Edicao() {
+                    var botEditar = document.getElementById("botEditar");
+                    var select1 = document.getElementById("select1");
+                    var select2 = document.getElementById("select2");
+                    var selInput = document.getElementById("frase");
+                    var pfrase = document.getElementById("pfrase");
+                    selInput.value = selInput.value + " " + select1.value + " " + select2.value;
+        
+                    frase.appendChild(input);
+                }
+            </script>
+            <footer><address>Armando Alves, Sérgio de Castro&copy;</address></footer>
+        </main>
+</body>
+
+</html>
